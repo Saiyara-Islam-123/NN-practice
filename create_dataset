@@ -1,0 +1,17 @@
+import pandas as pd
+import numpy as np
+from PIL import Image
+import os
+
+path = "Your path here"
+
+images = []
+
+for i in range(10):
+    image_path = os.path.join(path, os.listdir(path)[i])
+    image = Image.open(image_path)
+    image_array = np.array(image)
+    images.append({'file name': image, 'image array': image_array})
+    
+
+df = pd.DataFrame(images)
